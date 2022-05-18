@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="ICartDAL.cs" />
     <Compile Include="ICommonDAL.cs" />
     <Compile Include="ITaiKhoanDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

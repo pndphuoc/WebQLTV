@@ -9,7 +9,7 @@ using WebQLTV;
 namespace WebQLTV.Web.Controllers
 {
     [RoutePrefix("Book")]
-    public class BookController: Controller
+    public class BookController : Controller
     {
         public ActionResult Index()
         {
@@ -40,5 +40,11 @@ namespace WebQLTV.Web.Controllers
             Session["SACH_SEARCH"] = input;
             return View(model);
         }
+        //[Route("addtocart/{maSach}")]
+        //public ActionResult AddToCart(int MaSach)
+        //{
+
+        //}
+
     }
 }

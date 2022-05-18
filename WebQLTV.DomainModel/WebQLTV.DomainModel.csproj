@@ -46,6 +46,7 @@
     <Compile Include="ChiTietTra.cs" />
     <Compile Include="ChucDanh.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="DanhSachMuon.cs" />
     <Compile Include="DocGia.cs" />
     <Compile Include="Khoa.cs" />
     <Compile Include="LichSuMuon.cs" />
