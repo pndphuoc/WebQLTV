@@ -46,14 +46,21 @@
                 <option>Beeg</option>
             </select>
         </div>
-        
+
 
 
         <div class="row">
             @foreach (var item in WebQLTV.BusinessLayer.CommonDataService.ListSach())
             {
                 <div class="col-4">
-                    <a href="products_detal.html"><img src="~/bostorek/image/1.jpg" style="height:350px"></a>
+                    <a href="products_detal.html">
+                        <img src="~/bostorek/image/1.jpg" style="height:350px">
+                        @if (item.SoLuongCon == 0)
+                        {
+                            <div style="width: 100%; background-color: #ff6961; color: white; text-align: center">Hết hàng</div>
+                        }
+                    </a>
+
                     <h4><strong>@item.TenSach</strong></h4>
                     <div class="rating">
                         <i class="fa fa-star"></i>
@@ -63,11 +70,25 @@
                         <i class="fa fa-star-o"></i>
                     </div>
                     <p>
-                        Tác giả: <strong>Đăng Quang</strong><br />
+                        Tác giả:
+                        @foreach (var tg in WebQLTV.BusinessLayer.CommonDataService.ListTacGia(item.MaSach))
+                        {
+                            <strong>
+                                @tg.TenTacGia
+                            </strong><br />
+
+                        }
                         Xuất bản: <strong>@item.MaNhaXuatBan</strong><br />
-                        Số lượng còn lại: <strong>@item.SoLuongCon</strong>
+                        Số lượng còn trong thư viện: <strong>@item.SoLuongCon</strong>
                     </p>
-                    <p><button class="btn btn" style="background:#0094ff;margin-top:-8px"> Thêm vào giỏ </button></p>
+                    @if (item.SoLuongCon > 0)
+                    {
+                        <p><button class="btn btn" style="background:#0094ff;margin-top:-8px"> Thêm vào giỏ </button></p>
+                    }
+                    else
+                    {
+                        <p><button class="btn btn" style="background:#ffb347;margin-top:-8px"> Thêm vào wishlist </button></p>
+                    }
 
                 </div>
             }
