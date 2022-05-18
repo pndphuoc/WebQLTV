@@ -208,7 +208,6 @@ namespace WebQLTV.DataLayer.SQLServer
 
                 cn.Close();
             }
-
             return result;
         }
     }
