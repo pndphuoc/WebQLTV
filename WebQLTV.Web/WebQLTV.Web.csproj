@@ -5840,6 +5840,7 @@
     <Content Include="themes\plugins\input-mask\phone-codes\phone-codes.json" />
     <Content Include="Views\Book\Search.cshtml" />
     <Content Include="Views\History\Index.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -12,6 +12,7 @@ namespace WebQLTV.BusinessLayer
     public static class CommonDataService
     {
         private static readonly ICommonDAL<Sach> sachDB;
+        private static readonly ITacGiaDAL tacGiaDB;
         static CommonDataService()
         {
             string provider = ConfigurationManager.ConnectionStrings["DB"].ProviderName;
@@ -20,6 +21,7 @@ namespace WebQLTV.BusinessLayer
             {
                 case "SQLServer":
                     sachDB = new DataLayer.SQLServer.SachDAL(connectionString);
+                    tacGiaDB = new DataLayer.SQLServer.TacGiaDAL(connectionString);
                     break;
             }
         }
@@ -32,6 +34,13 @@ namespace WebQLTV.BusinessLayer
         {
             return sachDB.List().ToList();
         }
+
+        #region
+        public static List<TacGia> ListTacGia(int MaSach)
+        {
+            return tacGiaDB.List(MaSach).ToList();
+        }
+        #endregion
     }
-    
+
 }

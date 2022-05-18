@@ -2,10 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace WebQLTV.Web.Controllers
 {
-    public class CartController
+    [RoutePrefix("Cart")]
+    public class CartController : Controller
     {
+        public ActionResult Index()
+        {
+            return View();
+        }
     }
 }
