@@ -1,0 +1,195 @@
+﻿
+@{
+    //ViewBag.Title = "Index";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Printd T-Shirt - RedStore</title>
+    <link rel="stylesheet" href="~/content/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .table tr td{
+            text-align:center;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <!-- -----------------cart item details------------------- -->
+    <div class="small-container ">
+        <div class="row row-2" style="border-bottom:3px solid #0094ff;padding-bottom:10px">
+            <h2><strong style="font-size:25px">LỊCH SỬ MƯỢN SÁCH</strong></h2>
+
+            <select style="margin-left: -330px; border: 1px solid #0094ff">
+                <option>--Trạng thái--</option>
+                <option>Chưa trả</option>
+                <option>Đã trả</option>
+
+            </select>
+        </div>
+
+        <table>
+            <tr>
+                <th style="background:#0094ff"></th>
+                <th style="background:#0094ff">Lần mượn</th>
+                <th style="background:#0094ff">Ngày mượn</th>
+                <th style="background:#0094ff">Ngày trả</th>
+                <th style="background:#0094ff">Số lượng sách</th>
+                <th style="background:#0094ff">Trạng thái</th>
+            </tr>
+            <tr style="text-align: center;">
+                <td>
+                    <button class="btn-success" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        Chi tiết
+                    </button>
+                </td>
+                <td>
+                    Đợt 1
+                </td>
+                <td>26/01/2020</td>
+                <td>26/01/2022</td>
+                <td>1</td>
+                <td>Đã trả</td>
+            </tr>
+            <tr>
+                <td colspan="6">
+                    <div class="collapse" id="collapseExample">
+                        <div class="card card-body">
+                            <table>
+                                <tr>
+                                    <th style="background:#0094ff">Tên sách</th>
+                                   
+                                    <th style="background:#0094ff">Ngày trả</th>
+                                    <th style="background:#0094ff">Số lượng</th>
+                                    <th style="background:#0094ff">Trạng thái</th>
+                                </tr>
+                                <tr style="text-align: center;">
+                                    <td>
+                                        <div class="cart-info">
+                                            <img src="~/bostorek/image/1.jpg" style="height:100px">
+                                            <div>
+                                                <p>
+                                                    <strong>Anh ta bỏ em rồi</strong><br />
+                                                    <small>Tác giả: Đăng Quang</small><br />
+                                                    <small>Nhà xuất bản:Kim Đồng</small><br />
+                                                    <a href="">Xóa</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                 
+                                    <td>26/01/2022</td>
+                                    <td>1</td>
+                                    <td>Đã trả</td>
+                                </tr>
+                                <tr style="text-align: center;">
+                                    <td>
+                                        <div class="cart-info">
+                                            <img src="~/bostorek/image/2.jpg" style="height:100px">
+                                            <div>
+                                                <p>
+                                                    <strong>Anh ta bỏ em rồi</strong><br />
+                                                    <small>Tác giả: Đăng Quang</small><br />
+                                                    <small>Nhà xuất bản:Kim Đồng</small><br />
+                                                    <a href="">Xóa</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    
+                                    <td>26/01/2022</td>
+                                    <td>3</td>
+                                    <td>Đã trả</td>
+                                </tr>
+                                <tr style="text-align: center;">
+                                    <td>
+                                        <div class="cart-info">
+                                            <img src="~/bostorek/image/3.jpg" style="height:100px">
+                                            <div>
+                                                <p>
+                                                    <strong>Anh ta bỏ em rồi</strong><br />
+                                                    <small>Tác giả: Đăng Quang</small><br />
+                                                    <small>Nhà xuất bản:Kim Đồng</small><br />
+                                                    <a href="">Xóa</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    
+                                    <td>Chưa trả</td>
+                                    <td>5</td>
+                                    <td>Chưa trả</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr style="text-align: center;">
+                <td>
+                    <button class="btn-success" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        Chi tiết
+                    </button>
+                </td>
+                <td>
+                    Đợt 2
+                </td>
+                <td>26/01/2020</td>
+                <td>26/01/2022</td>
+                <td>3</td>
+                <td>Chưa trả</td>
+            </tr>
+            <tr style="text-align: center;">
+                <td>
+                    <button class="btn-success" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        Chi tiết
+                    </button>
+                </td>
+                <td>
+                    Đợt 3
+                </td>
+                <td>26/01/2020</td>
+                <td>26/01/2022</td>
+                <td>5</td>
+                <td>Đã trả</td>
+            </tr>
+        </table>
+
+        
+        
+    </div>
+    
+
+
+
+    <!-- ------------footer----------- -->
+    <!-- ------------------- js for toggle menu-------------- -->
+    <script>
+        var MenuItems = document.getElementById("MenuItems");
+
+        MenuItems.style.maxHeight = "0px";
+
+        function menutoggle() {
+            if (MenuItems.style.maxHeight == "0px") {
+                MenuItems.style.maxHeight = "200px";
+            }
+            else {
+                MenuItems.style.maxHeight = "0px";
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
+

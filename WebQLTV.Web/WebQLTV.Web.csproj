@@ -5839,6 +5839,7 @@
     <Content Include="themes\plugins\input-mask\phone-codes\phone-be.json" />
     <Content Include="themes\plugins\input-mask\phone-codes\phone-codes.json" />
     <Content Include="Views\Book\Search.cshtml" />
+    <Content Include="Views\History\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
