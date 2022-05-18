@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyThuVIen.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -23,12 +24,12 @@ namespace WebQLTV.Web.Controllers
         public ActionResult Login(string username, string password)
         {
             //TODO: Code lại để kiểm tra đúng tài khoản đăng nhập
+            DocGia acc = TaiKhoanDataService.CheckLogin(username, password);
 
-
-            if (TaiKhoanDataService.CheckLogin(username, password))
+            if (acc !=null)
             {
                 System.Web.Security.FormsAuthentication.SetAuthCookie(username, false);
-
+                Session["Account"] = acc;
                 return RedirectToAction("Index", "Home");
             }
 

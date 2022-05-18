@@ -38,7 +38,7 @@ namespace WebQLTV.BusinessLayer
         /// <param name="username"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-        public static bool CheckLogin(string username, string password)
+        public static DocGia CheckLogin(string username, string password)
         {
             return taikhoanDB.CheckLogin(username, password);
         }

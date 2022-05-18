@@ -47,6 +47,8 @@
     <Compile Include="ChucDanh.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="DanhSachMuon.cs" />
+    <Compile Include="ListSach.cs" />
+    <Compile Include="SachMuon.cs" />
     <Compile Include="DocGia.cs" />
     <Compile Include="Khoa.cs" />
     <Compile Include="LichSuMuon.cs" />
@@ -59,6 +61,7 @@
     <Compile Include="TaiKhoan.cs" />
     <Compile Include="TrangThai.cs" />
     <Compile Include="ViPham.cs" />
+    <Compile Include="WishBook.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

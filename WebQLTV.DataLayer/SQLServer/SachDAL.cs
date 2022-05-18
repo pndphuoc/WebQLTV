@@ -101,7 +101,7 @@ namespace WebQLTV.DataLayer.SQLServer
                         DonGia = Convert.ToInt32(dbReader["DonGia"]),
                         Anh = Convert.ToString(dbReader["Anh"]),
                         MaLoaiSach = Convert.ToInt32(dbReader["MaLoaiSach"]),
-                        MaNgonNgu = Convert.ToInt32(dbReader["MaNgonNgau"]),
+                        MaNgonNgu = Convert.ToInt32(dbReader["MaNgonNgu"]),
                         MaNhaXuatBan = Convert.ToInt32(dbReader["MaNhaXuatBan"]),
                         MaSach = Convert.ToInt32(dbReader["MaSach"]),
                         NamXuatBan = Convert.ToInt32(dbReader["NamXuatBan"]),

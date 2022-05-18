@@ -16,7 +16,7 @@ namespace WebQLTV.DataLayer
         /// <param name="email"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-       bool CheckLogin(string email, string password);
+       DocGia CheckLogin(string email, string password);
 
 
 
