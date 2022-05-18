@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyThuVIen.Model;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
@@ -27,6 +28,10 @@ namespace WebQLTV.BusinessLayer
         }
 
 
+
+        #region cac ham lien quan den tai khoan doc gia
+        
+        
         /// <summary>
         /// kiem tra dang nhap
         /// </summary>
@@ -37,5 +42,17 @@ namespace WebQLTV.BusinessLayer
         {
             return taikhoanDB.CheckLogin(username, password);
         }
+
+
+        /// <summary>
+        /// Lay thong tin cua doc gia bang ma doc gia
+        /// </summary>
+        /// <param name="madocgia"></param>
+        /// <returns></returns>
+        public static DocGia GetDocGia (string username)
+        {
+            return taikhoanDB.GetDocGia(username);
+        }
+        #endregion
     }
 }

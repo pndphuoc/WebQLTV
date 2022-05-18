@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyThuVIen.Model;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -13,6 +14,14 @@ namespace WebQLTV.DataLayer.SQLServer
         {
         }
 
+
+
+        /// <summary>
+        /// Kiem tra dang nhap
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public bool CheckLogin(string username, string password)
         {
             bool result = false;
@@ -33,6 +42,63 @@ namespace WebQLTV.DataLayer.SQLServer
             return result;
         }
 
+
+
+        /// <summary>
+        /// Lay thong tin doc gia bang ma doc gia
+        /// </summary>
+        /// <param name="MaDocGia"></param>
+        /// <returns></returns>
+        public DocGia GetDocGia (string username)
+        {
+            DocGia data = null;
+            using (SqlConnection cn = OpenConnection())
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = @"select * from DocGia where Username = @username";
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Connection = cn;
+
+                cmd.Parameters.AddWithValue("@username", username);
+
+                var dbReader = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+
+
+                if (dbReader.Read())
+                {
+                    data = new DocGia()
+                    {
+                        MaDocGia = Convert.ToInt32(dbReader["MaDocGia"]),
+                        TenDocGia = Convert.ToString(dbReader["TenDocGia"]),
+                        NgaySinh = Convert.ToDateTime(dbReader["NgaySinh"]),
+                        MaChucDanh = Convert.ToInt32(dbReader["MaChucDanh"]),
+                        GioiTinh = Convert.ToBoolean(dbReader["GioiTinh"]),
+                        Email = Convert.ToString(dbReader["Email"]),
+                        DiaChi = Convert.ToString(dbReader["DiaChi"]),
+                        SoDienThoai = Convert.ToString(dbReader["SoDienThoai"]),
+                        NgayDangKy = Convert.ToDateTime(dbReader["NgayDangKy"]),
+                        NgayHetHan = Convert.ToDateTime(dbReader["NgayHetHan"]),
+                        Lop = Convert.ToString(dbReader["Lop"]),
+                        MaKhoa = Convert.ToInt32(dbReader["MaKhoa"]),
+                        KhoaHoc = Convert.ToInt32(dbReader["KhoaHoc"]),
+                        Username = Convert.ToString(dbReader["Username"]),
+                        Password = Convert.ToString(dbReader["Password"])
+
+                    };
+                }
+
+                cn.Close();
+            }
+            return data;
+        }
+
+
+        /// <summary>
+        /// Thay doi mat khau
+        /// </summary>
+        /// <param name="email"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public bool ChangePass(string email, string password)
         {
             throw new NotImplementedException();

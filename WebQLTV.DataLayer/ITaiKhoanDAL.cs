@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyThuVIen.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,6 +19,7 @@ namespace WebQLTV.DataLayer
        bool CheckLogin(string email, string password);
 
 
+
         /// <summary>
         /// Doi mat khau
         /// </summary>
@@ -25,5 +27,13 @@ namespace WebQLTV.DataLayer
         /// <param name="password"></param>
         /// <returns></returns>
         bool ChangePass(string email, string password);
+
+
+        /// <summary>
+        /// Lay thong tin cua doc gia bang ma doc gia
+        /// </summary>
+        /// <param name="madocgia"></param>
+        /// <returns></returns>
+        DocGia GetDocGia(string username);
     }
 }
