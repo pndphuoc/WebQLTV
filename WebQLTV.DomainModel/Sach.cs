@@ -20,7 +20,7 @@ namespace QuanLyThuVIen.Model
         public bool TinhTrang { get; set; }
         public string Anh { get; set; }
         public int MaLoaiSach { get; set; }
-
+        public int SoLuongCon { get; set; }
         public Sach()
         {
 

@@ -1,6 +1,7 @@
 ﻿using QuanLyThuVIen.Model;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,12 +31,66 @@ namespace WebQLTV.DataLayer.SQLServer
 
         public NhaXuatBan Get(int id)
         {
-            throw new NotImplementedException();
+            NhaXuatBan data = null;
+
+            using (SqlConnection cn = OpenConnection())
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = "select * from NhaXuatBan where MaNhaXuatBan = @MaNhaXuatBan";
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Connection = cn;
+
+                cmd.Parameters.AddWithValue("@MaNhaXuatBan", id);
+
+                var dbReader = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+
+                if (dbReader.Read())
+                {
+                    data = new NhaXuatBan()
+                    {
+                        MaNhaXuatBan = Convert.ToInt32(dbReader["MaNhaXuatBan"]),
+                        TenNhaXuatBan = Convert.ToString(dbReader["TenNhaXuatBan"]),
+                        GhiChu = Convert.ToString(dbReader["GhiChu"])
+
+                    };
+                }
+
+                cn.Close();
+            }
+
+            return data;
         }
 
         public bool InUsed(int id)
         {
             throw new NotImplementedException();
+        }
+
+        public IList<NhaXuatBan> List()
+        {
+            List<NhaXuatBan> data = new List<NhaXuatBan>();
+
+            using (SqlConnection cn = OpenConnection())
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = @"select * from NhaXuatBan";
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Connection = cn;
+
+
+                var result = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+                while (result.Read())
+                {
+                    data.Add(new NhaXuatBan()
+                    {
+                        MaNhaXuatBan = Convert.ToInt32(result["MaNhaXuatBan"]),
+                         TenNhaXuatBan = Convert.ToString(result["TenNhaXuatBan"]),
+                         GhiChu = Convert.ToString(result["GhiChu"])
+                    });
+                }
+                cn.Close();
+            }
+            return data;
         }
 
         public IList<NhaXuatBan> List(int page = 1, int pageSize = 0, string searchValue = "")
