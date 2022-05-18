@@ -1,51 +1,200 @@
 ﻿
 @{
-//ViewBag.Title = "Index";
+    //ViewBag.Title = "Index";
 }
 
 <!-- catagory section -->
-<from class="search_form" style="width:800px">
-    <select class="form-control-static" style="border: 1px solid #0094ff; margin-left: 20px">
-        <option>-- Loại sách --</option>
-    </select>
-    <select class="form-control-static" style="border:1px solid #0094ff; margin-left:20px">
-        <option>-- Tác giả --</option>
-    </select>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Products - RedStore</title>
+    <link rel="stylesheet" href="~/content/style.css">
+
+</head>
+
+<body class="bodyss">
     
-    <input type="text" class="form-control" placeholder="Search here..." style="border:1px solid #0094ff">
-    <button class="" type="submit">
-        <i class="fa fa-search" aria-hidden="true"></i>
-    </button>
-</from>
-<section class="catagory_section layout_padding">
+    
 
-    <div class="catagory_container">
-        <div class="container ">
-            <div class="heading_container heading_center">
-                @for(int i = 1; i < 4; i++) {
-                <div class="row">
-                    <div class="col-sm-6 col-md-4 ">
-                        <div class="box ">
-                            <div class="img">
-                                <img src="~/bostorek/images/cat1.png" alt="">
-                            </div>
-                            <div class="detail-box">
-                                <h5>
-                                    Sách bài tập
-                                </h5>
-                                <p>
-                                    fact that a reader will be distracted by the readable content of a page when looking at its layout.
-                                    The
-                                    point of using
-                                </p>
-                            </div>
-                        </div>
-                    </div>
 
+
+    <div class="small-container">
+
+        <div class="row row-2">
+            <h2>Tất cả sách</h2>
+            <select>
+                <option>--Loại sách--</option>
+                <option>Bài tập</option>
+                <option>Pornhub</option>
+                <option>Jav</option>
+                <option>Beeg</option>
+            </select>
+        </div>
+
+        <div class="row">
+            <div class="col-4">
+                <a href="products_detal.html"><img src="~/bostorek/image/1.jpg" style="height:350px"></a>
+                <h4>Mình chia tay nhé</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
                 </div>
-                }
+                <p>
+                    Tác giả: <strong>Đăng Quang</strong><br />
+                    Xuất bản: <strong>Kim Đồng</strong>
+                </p>
+                <p><button class="btn-success"> Thêm vào giỏ </button></p>
+                
+            </div>
+            <div class="col-4">
+                <img src="~/bostorek/image/2.jpg" style="height:350px">
+                <h4>Một điều vì sao</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>
+                    Tác giả: <strong>Đăng Quang</strong><br />
+                    Xuất bản: <strong>Kim Đồng</strong>
+                </p>
+                <p><button class="btn-success"> Thêm vào giỏ </button></p>
+            </div>
+            <div class="col-4">
+                <img src="~/bostorek/image/3.jpg" style="height:350px">
+                <h4>Anh ta bỏ em rồi</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                </div>
+                <p>
+                    Tác giả: <strong>Đăng Quang</strong><br />
+                    Xuất bản: <strong>Kim Đồng</strong>
+                </p>
+                <p><button class="btn-success"> Thêm vào giỏ </button></p>
+            </div>
+            <div class="col-4">
+                <img src="~/bostorek/image/4.jpg" style="height:350px">
+                <h4>Muộn rồi mà sao còn</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>
+                    Tác giả: <strong>Đăng Quang</strong><br />
+                    Xuất bản: <strong>Kim Đồng</strong>
+                </p>
+                <p><button class="btn-success"> Thêm vào giỏ </button></p>
             </div>
         </div>
+        <div class="row">
+            <div class="col-4">
+                <img src="~/bostorek/image/5.jpg" style="height:350px">
+                <h4>Sách Lập trình</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>
+                    Tác giả: <strong>Đăng Quang</strong><br />
+                    Xuất bản: <strong>Kim Đồng</strong>
+                </p>
+                <p><button class="btn-success"> Thêm vào giỏ </button></p>
+            </div>
+            <div class="col-4">
+                <img src="~/bostorek/image/6.jpg" style="height:350px">
+                <h4>Buồn của tôi</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>
+                    Tác giả: <strong>Đăng Quang</strong><br />
+                    Xuất bản: <strong>Kim Đồng</strong>
+                </p>
+                <p><button class="btn-success"> Thêm vào giỏ </button></p>
+            </div>
+            <div class="col-4">
+                <img src="~/bostorek/image/7.jpg" style="height:350px">
+                <h4>Lá xa lìa cành</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                </div>
+                <p>
+                    Tác giả: <strong>Đăng Quang</strong><br />
+                    Xuất bản: <strong>Kim Đồng</strong>
+                </p>
+                <p><button class="btn-success"> Thêm vào giỏ </button></p>
+            </div>
+            <div class="col-4">
+                <img src="~/bostorek/image/8.jpg" style="height:350px">
+                <h4>Lạc trôi</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>
+                    Tác giả: <strong>Đăng Quang</strong><br />
+                    Xuất bản: <strong>Kim Đồng</strong>
+                </p>
+                <p><button class="btn-success"> Thêm vào giỏ </button></p>
+            </div>
+        </div>
+        
+        </div>
+        <div class="page-link">
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>&#8594;</span>
+        </div>
     </div>
-</section>
+    <!-- ------------footer----------- -->
 
+    >
+        <script>
+            var MenuItems = document.getElementById("MenuItems");
+
+            MenuItems.style.maxHeight = "0px";
+
+            function menutoggle() {
+                if (MenuItems.style.maxHeight == "0px") {
+                    MenuItems.style.maxHeight = "200px";
+                }
+                else {
+                    MenuItems.style.maxHeight = "0px";
+                }
+            }
+
+        </script>
+</body>
+
+</html>
