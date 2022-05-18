@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 namespace WebQLTV.DataLayer.SQLServer
 {
+    /// <summary>
+    /// Lớp cơ sở (Lớp cha) cho các lớp liên quan đến xử lý dữ liệu trên
+    /// SQL Server
+    /// </summary>
     public abstract class _BaseDAL
     {
         /// <summary>
