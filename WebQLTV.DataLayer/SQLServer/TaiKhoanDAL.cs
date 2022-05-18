@@ -99,9 +99,27 @@ namespace WebQLTV.DataLayer.SQLServer
         /// <param name="email"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-        public bool ChangePass(string email, string password)
+        public bool ChangePass(string username, string password)
         {
-            throw new NotImplementedException();
+            bool result = false;
+            using (SqlConnection cn = OpenConnection())
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = @"update DocGia set Password = @password where Username = @username ";
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Connection = cn;
+
+                cmd.Parameters.AddWithValue("@username", username);
+                cmd.Parameters.AddWithValue("@password", password);
+
+                result = Convert.ToBoolean(cmd.ExecuteScalar());
+
+                cn.Close();
+            }
+            return result;
         }
+
+
+        
     }
 }
