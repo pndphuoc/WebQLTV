@@ -155,6 +155,7 @@
     <Content Include="bostorek\images\contact-img.jpg" />
     <Content Include="bostorek\images\contact-img.png" />
     <Content Include="bostorek\images\favicon.png" />
+    <Content Include="bostorek\images\logo.png" />
     <Content Include="bostorek\images\slider-img.png" />
     <Content Include="bostorek\images\thuvienkhoahoc.jpg" />
     <Content Include="bostorek\images\thuvienkhoahoc2.jpg" />
