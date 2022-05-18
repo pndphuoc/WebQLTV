@@ -19,7 +19,7 @@
     <link rel="stylesheet" type="text/css" href="~/bostorek/css/bootstrap.css" />
     <!-- font awesome style -->
     <link href="~/bostorek/css/font-awesome.min.css" rel="stylesheet" />
-
+    <script src="~/Scripts/Search.js"></script>
     <!-- Custom styles for this template -->
     <link href="~/bostorek/css/style.css" rel="stylesheet" />
     <!-- responsive style -->
@@ -35,7 +35,7 @@
     <h1>
         @ViewBag.Title
     </h1>
-    <section class="content" >
+    <section class="content">
         @RenderBody()
     </section>
 
@@ -54,7 +54,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
     </script>
     <!-- End Google Map -->
-
+    @RenderSection("scripts", false)
 </body>
 
 </html>

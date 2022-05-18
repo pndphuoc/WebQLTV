@@ -122,7 +122,42 @@ namespace WebQLTV.DataLayer.SQLServer
         {
             throw new NotImplementedException();
         }
+        public IList<Sach> List()
+        {
+            List<Sach> data = new List<Sach>();
 
+            using (SqlConnection cn = OpenConnection())
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = @"select *
+                                    from Sach";
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Connection = cn;
+
+
+                var result = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+                while (result.Read())
+                {
+                    data.Add(new Sach()
+                    {
+                        TenSach = Convert.ToString(result["TenSach"]),
+                        DonGia = Convert.ToInt32(result["DonGia"]),
+                        Anh = Convert.ToString(result["Anh"]),
+                        MaLoaiSach = Convert.ToInt32(result["MaLoaiSach"]),
+                        MaNgonNgu = Convert.ToInt32(result["MaNgonNgau"]),
+                        MaNhaXuatBan = Convert.ToInt32(result["MaNhaXuatBan"]),
+                        MaSach = Convert.ToInt32(result["MaSach"]),
+                        NamXuatBan = Convert.ToInt32(result["NamXuatBan"]),
+                        SoLuong = Convert.ToInt32(result["SoLuong"]),
+                        SoTaiBan = Convert.ToInt32(result["SoTaiBan"]),
+                        TinhTrang = Convert.ToBoolean(result["TinhTrang"]),
+                        SoLuongCon = Convert.ToInt32(result["SoLuongCon"])
+                    });
+                }
+                cn.Close();
+            }
+            return data;
+        }
         public IList<Sach> List(int page = 1, int pageSize = 0, string searchValue = "")
         {
             List<Sach> data = new List<Sach>();
@@ -160,7 +195,7 @@ namespace WebQLTV.DataLayer.SQLServer
                         DonGia = Convert.ToInt32(result["DonGia"]),
                         Anh = Convert.ToString(result["Anh"]),
                         MaLoaiSach = Convert.ToInt32(result["MaLoaiSach"]),
-                        MaNgonNgu = Convert.ToInt32(result["MaNgonNgau"]),
+                        MaNgonNgu = Convert.ToInt32(result["MaNgonNgu"]),
                         MaNhaXuatBan = Convert.ToInt32(result["MaNhaXuatBan"]),
                         MaSach = Convert.ToInt32(result["MaSach"]),
                         NamXuatBan = Convert.ToInt32(result["NamXuatBan"]),
