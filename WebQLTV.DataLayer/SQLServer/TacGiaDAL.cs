@@ -19,9 +19,40 @@ namespace WebQLTV.DataLayer.SQLServer
             throw new NotImplementedException();
         }
 
+
+
+        /// <summary>
+        /// dem tac gia
+        /// </summary>
+        /// <param name="searchValue"></param>
+        /// <returns></returns>
         public int Count(string searchValue = "")
         {
-            throw new NotImplementedException();
+            int count = 0;
+
+            if (searchValue != "")
+                searchValue = "%" + searchValue + "%";
+
+            using (SqlConnection cn = OpenConnection())
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = @"select count(*)
+                                    from TacGia
+                                    where (@searchValue = N'')
+                                        or(
+                                                (TenTacGia like @searchValue)
+                                                
+                                            )";
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Connection = cn;
+
+                cmd.Parameters.AddWithValue("@searchValue", searchValue);
+
+                count = Convert.ToInt32(cmd.ExecuteScalar());
+
+                cn.Close();
+            }
+            return count;
         }
 
         public bool Delete(int id)
@@ -29,6 +60,13 @@ namespace WebQLTV.DataLayer.SQLServer
             throw new NotImplementedException();
         }
 
+
+
+        /// <summary>
+        ///  lay thong tin tac gia
+        /// </summary>
+        /// <param name="matacgia"></param>
+        /// <returns></returns>
         public TacGia Get(int matacgia)
         {
             TacGia data = null;
