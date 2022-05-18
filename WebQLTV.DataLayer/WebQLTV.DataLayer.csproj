@@ -46,6 +46,7 @@
     <Compile Include="ITaiKhoanDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLServer\DocGiaDAL.cs" />
+    <Compile Include="SQLServer\TacGiaDAL.cs" />
     <Compile Include="SQLServer\TaiKhoanDAL.cs" />
     <Compile Include="SQLServer\_BaseDAL.cs" />
   </ItemGroup>
