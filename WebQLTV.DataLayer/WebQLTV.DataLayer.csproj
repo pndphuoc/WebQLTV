@@ -45,6 +45,7 @@
     <Compile Include="ICartDAL.cs" />
     <Compile Include="IChiTietMuonDAL.cs" />
     <Compile Include="ICommonDAL.cs" />
+    <Compile Include="ILichSuMuonDAL.cs" />
     <Compile Include="ITaiKhoanDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLServer\ChiTietMuonDAL.cs" />
@@ -52,6 +53,7 @@
     <Compile Include="SQLServer\DanhSachMuonDAL.cs" />
     <Compile Include="SQLServer\DocGiaDAL.cs" />
     <Compile Include="ITacGiaDAL.cs" />
+    <Compile Include="SQLServer\LichSuMuonDAL.cs" />
     <Compile Include="IDanhSachMuonDAL.cs" />
     <Compile Include="IWishlistDAL.cs" />
     <Compile Include="SQLServer\NhaXuatBanDAL.cs" />

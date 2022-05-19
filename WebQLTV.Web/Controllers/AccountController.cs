@@ -29,6 +29,8 @@ namespace WebQLTV.Web.Controllers
             if (acc !=null)
             {
                 System.Web.Security.FormsAuthentication.SetAuthCookie(username, false);
+                DocGia DG =TaiKhoanDataService.GetDocGia(username);
+                Session["MaDocGia"] = DG.MaDocGia;
                 Session["Account"] = acc;
                 return RedirectToAction("Index", "Home");
             }

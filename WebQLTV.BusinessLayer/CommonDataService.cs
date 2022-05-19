@@ -14,6 +14,7 @@ namespace WebQLTV.BusinessLayer
     {
         private static readonly ICommonDAL<Sach> sachDB;
         private static readonly ITacGiaDAL tacGiaDB;
+        private static readonly ILichSuMuonDAL lichsuDB;
         private static readonly IDanhSachMuonDAL danhSachMuonDB;
         private static readonly ICommonDAL<NhaXuatBan> nxbDB;
         private static readonly IChiTietMuonDAL ctmDB;
@@ -27,6 +28,7 @@ namespace WebQLTV.BusinessLayer
                 case "SQLServer":
                     sachDB = new DataLayer.SQLServer.SachDAL(connectionString);
                     tacGiaDB = new DataLayer.SQLServer.TacGiaDAL(connectionString);
+                    lichsuDB = new DataLayer.SQLServer.LichSuMuonDAL(connectionString);
                     danhSachMuonDB = new DataLayer.SQLServer.DanhSachMuonDAL(connectionString);
                     nxbDB = new DataLayer.SQLServer.NhaXuatBanDAL(connectionString);
                     ctmDB = new DataLayer.SQLServer.ChiTietMuonDAL(connectionString);
@@ -55,6 +57,24 @@ namespace WebQLTV.BusinessLayer
             return tacGiaDB.List(MaSach).ToList();
         }
         #endregion
+
+        #region Lịch sử mượn trả
+
+        public static List<ChiTietMuon> ListLS(int MaDocGia)
+        {
+            return lichsuDB.GetList(MaDocGia).ToList();
+        }
+        public static List<ChiTietSachMuon> ListCTMuon(int MaChiTietMuon)
+        {
+            return lichsuDB.ListCTMuon(MaChiTietMuon).ToList();
+        }
+        public static CheckDungHan InUsedLS(int MaChiTietMuon, int MaSach)
+        {
+            return lichsuDB.InUsedLS(MaChiTietMuon, MaSach);
+        }
+        public static List<ChiTietMuon> ListLSTT(int MaDocGia,int TrangThai)
+        {
+            return lichsuDB.GetListTT(MaDocGia, TrangThai).ToList();
         #region Danh sách mượn
         public static bool AddSachMuon(int MaDocGia, int MaSach, int SoLuong)
         {

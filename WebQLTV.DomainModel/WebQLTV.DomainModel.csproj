@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CheckDungHan.cs" />
     <Compile Include="ChiTietMuon.cs" />
     <Compile Include="ChiTietSachMuon.cs" />
     <Compile Include="ChiTietTra.cs" />

@@ -1,6 +1,8 @@
-﻿
+﻿@model IEnumerable<WebQLTV.DomainModel.ChiTietMuon>
 @{
-    //ViewBag.Title = "Index";
+            //ViewBag.Title = "Index";
+
+
 }
 
 <!DOCTYPE html>
@@ -28,140 +30,150 @@
     <div class="small-container ">
         <div class="row row-2" style="border-bottom:3px solid #0094ff;padding-bottom:10px">
             <h2><strong style="font-size:25px">LỊCH SỬ MƯỢN SÁCH</strong></h2>
+           
+            <form action="~/history" method="post" >
+                <select style="margin-left: -330px; border: 1px solid #0094ff; margin-left: 300px" name="TrangThai">
+                    @if (ViewBag.s == -1)
+                    {
+                        <option>Đang chờ</option>
+                        <option value="Null">Tất cả</option>
+                    }
+                    else if (ViewBag.s == 0)
+                    {
+                        <option>Chưa trả</option>
+                        <option value="Null">Tất cả</option>
 
-            <select style="margin-left: -330px; border: 1px solid #0094ff">
-                <option>--Trạng thái--</option>
-                <option>Chưa trả</option>
-                <option>Đã trả</option>
+                    }
+                    else if (ViewBag.s == 1)
+                    {
+                        <option>Đã trả</option>
+                        <option value="Null">Tất cả</option>
 
-            </select>
+                    }
+                    else
+                    {
+                        <option value="Null">--Trạng thái--</option>
+                    }
+
+                    <option value="0">Chưa trả</option>
+                    <option value="1">Đã trả</option>
+                    <option value="-1">Đang chờ</option>
+
+                </select>
+                <button id="ss" type="submit" style="border:1px solid white"> </button>
+            </form>
+
+        
         </div>
 
         <table>
             <tr>
                 <th style="background:#0094ff"></th>
-                <th style="background:#0094ff">Lần mượn</th>
+             
                 <th style="background:#0094ff">Ngày mượn</th>
                 <th style="background:#0094ff">Ngày trả</th>
                 <th style="background:#0094ff">Số lượng sách</th>
                 <th style="background:#0094ff">Trạng thái</th>
             </tr>
-            <tr style="text-align: center;">
-                <td>
-                    <button class="btn-success" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                        Chi tiết
-                    </button>
-                </td>
-                <td>
-                    Đợt 1
-                </td>
-                <td>26/01/2020</td>
-                <td>26/01/2022</td>
-                <td>1</td>
-                <td>Đã trả</td>
-            </tr>
-            <tr>
-                <td colspan="6">
-                    <div class="collapse" id="collapseExample">
-                        <div class="card card-body">
-                            <table>
-                                <tr>
-                                    <th style="background:#0094ff">Tên sách</th>
-                                   
-                                    <th style="background:#0094ff">Ngày trả</th>
-                                    <th style="background:#0094ff">Số lượng</th>
-                                    <th style="background:#0094ff">Trạng thái</th>
-                                </tr>
+            
+            @foreach (var item in Model)
+            {
+                <tr style="text-align: center;">
+                    <td>
+                        <button class="btn-success" type="button" data-toggle="collapse" data-target="#collapseExample-@item.MaChiTietMuon" aria-expanded="false" aria-controls="collapseExample">
+                            Chi tiết
+                        </button>
+                    </td>
+                    
+                    <td>@item.NgayMuon</td>
+                    <td>@item.HanTra</td>
+                    <td>@item.SoLuongMuon</td>
+                   @if (item.TrangThai == -1)
+                        {
+                            <td style="color:#0094ff;font-style:italic;">Đang chờ</td>
+                        }
+                   @if (item.TrangThai == 1)
+                        {
+                            <td style="color:#00ff21;font-style:italic;">Đã trả</td>
+                        }
+                   @if (item.TrangThai == 0)
+                        {
+                            <td style="color:#ff0000;font-style:italic;">Chưa trả</td>
+                        }
+                </tr>
+                <tr>
+                    <td colspan="6">
+                        <div class="collapse" id="collapseExample-@item.MaChiTietMuon">
+                            <div class="card card-body">
+                                <table>
+                                    <tr>
+                                        <th style="background:#0094ff">Tên sách</th>
+
+                                        <th style="background:#0094ff">Ngày trả</th>
+                                        <th style="background:#0094ff">Số lượng</th>
+                                        <th style="background:#0094ff">Trạng thái</th>
+                                    </tr>
+                                   @foreach(var l in WebQLTV.BusinessLayer.CommonDataService.ListCTMuon(item.MaChiTietMuon)) {
                                 <tr style="text-align: center;">
                                     <td>
                                         <div class="cart-info">
                                             <img src="~/bostorek/image/1.jpg" style="height:100px">
                                             <div>
                                                 <p>
-                                                    <strong>Anh ta bỏ em rồi</strong><br />
-                                                    <small>Tác giả: Đăng Quang</small><br />
-                                                    <small>Nhà xuất bản:Kim Đồng</small><br />
-                                                    <a href="">Xóa</a>
+                                                    @foreach (var j in WebQLTV.BusinessLayer.CommonDataService.ListSach())
+                                                    {
+                                                        if (j.MaSach == l.MaSach)
+                                                        {
+                                                            <strong>@j.TenSach</strong><br />
+                                                            <small>Năm xuất bản:@j.NamXuatBan</small><br />
+                                                            <small>Nhà xuất bản:@j.MaNhaXuatBan</small><br />
+                                                            <small>Ngôn ngữ:Tiếng Việt</small><br />
+
+                                                        }
+                                                    }
                                                 </p>
                                             </div>
                                         </div>
                                     </td>
-                                 
-                                    <td>26/01/2022</td>
-                                    <td>1</td>
-                                    <td>Đã trả</td>
+                                   @if (item.TrangThai != -1)
+                                    {
+                                        if (WebQLTV.BusinessLayer.CommonDataService.InUsedLS(item.MaChiTietMuon, l.MaSach).MaSach == l.MaSach)
+                                        {
+                                            <td>@WebQLTV.BusinessLayer.CommonDataService.InUsedLS(item.MaChiTietMuon, l.MaSach).NgayTra</td>
+                                            <td>@l.SoLuong</td>
+
+                                            if (WebQLTV.BusinessLayer.CommonDataService.InUsedLS(item.MaChiTietMuon, l.MaSach).TraDungHan)
+                                            {
+                                                <td style="color:#00ff21;font-style:italic;">Đúng hạn</td>
+                                            }
+                                            else
+                                            {
+                                                <td style="color:#ffd800;font-style:italic;">Trễ hạn</td>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <td style="color:#ff0000;font-style:italic;">Chưa trả</td>
+                                            <td>@l.SoLuong</td>
+                                            <td style="color:#ff0000;font-style:italic;">Chưa trả</td>
+                                        }
+                                    }
+                                    else
+                                    {
+                                       <td style="color:#0094ff;font-style:italic;">Đang chờ</td>
+                                       <td>@l.SoLuong</td>
+                                       <td style="color:#0094ff;font-style:italic;">Đang chờ</td>
+                                    }
+
                                 </tr>
-                                <tr style="text-align: center;">
-                                    <td>
-                                        <div class="cart-info">
-                                            <img src="~/bostorek/image/2.jpg" style="height:100px">
-                                            <div>
-                                                <p>
-                                                    <strong>Anh ta bỏ em rồi</strong><br />
-                                                    <small>Tác giả: Đăng Quang</small><br />
-                                                    <small>Nhà xuất bản:Kim Đồng</small><br />
-                                                    <a href="">Xóa</a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    
-                                    <td>26/01/2022</td>
-                                    <td>3</td>
-                                    <td>Đã trả</td>
-                                </tr>
-                                <tr style="text-align: center;">
-                                    <td>
-                                        <div class="cart-info">
-                                            <img src="~/bostorek/image/3.jpg" style="height:100px">
-                                            <div>
-                                                <p>
-                                                    <strong>Anh ta bỏ em rồi</strong><br />
-                                                    <small>Tác giả: Đăng Quang</small><br />
-                                                    <small>Nhà xuất bản:Kim Đồng</small><br />
-                                                    <a href="">Xóa</a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    
-                                    <td>Chưa trả</td>
-                                    <td>5</td>
-                                    <td>Chưa trả</td>
-                                </tr>
-                            </table>
+                                    }
+                                </table>
+                            </div>
                         </div>
-                    </div>
-                </td>
-            </tr>
-            <tr style="text-align: center;">
-                <td>
-                    <button class="btn-success" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                        Chi tiết
-                    </button>
-                </td>
-                <td>
-                    Đợt 2
-                </td>
-                <td>26/01/2020</td>
-                <td>26/01/2022</td>
-                <td>3</td>
-                <td>Chưa trả</td>
-            </tr>
-            <tr style="text-align: center;">
-                <td>
-                    <button class="btn-success" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                        Chi tiết
-                    </button>
-                </td>
-                <td>
-                    Đợt 3
-                </td>
-                <td>26/01/2020</td>
-                <td>26/01/2022</td>
-                <td>5</td>
-                <td>Đã trả</td>
-            </tr>
+                    </td>
+                </tr>
+            }
+
         </table>
 
         
@@ -187,6 +199,14 @@
             }
         }
 
+    </script>
+    <script>
+        const select = document.querySelector("select")
+        select.onchange = () => {
+            if (select.selectedIndex !== 0) {
+                document.getElementById('ss').click();
+            }
+        };
     </script>
 
 </body>
