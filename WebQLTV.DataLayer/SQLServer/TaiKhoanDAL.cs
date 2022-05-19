@@ -22,9 +22,9 @@ namespace WebQLTV.DataLayer.SQLServer
         /// <param name="username"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-        public bool CheckLogin(string username, string password)
+        public DocGia CheckLogin(string username, string password)
         {
-            bool result = false;
+            DocGia acc = new DocGia();
             using (SqlConnection cn = OpenConnection())
             {
                 SqlCommand cmd = new SqlCommand();
@@ -35,11 +35,31 @@ namespace WebQLTV.DataLayer.SQLServer
                 cmd.Parameters.AddWithValue("@username", username);
                 cmd.Parameters.AddWithValue("@password", password);
 
-                result = Convert.ToBoolean(cmd.ExecuteScalar());
-
+                var dbReader = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+                if(dbReader.Read())
+                {
+                    acc = new DocGia()
+                    {
+                        MaDocGia = Convert.ToInt32(dbReader["MaDocGia"]),
+                        TenDocGia = Convert.ToString(dbReader["TenDocGia"]),
+                        NgaySinh = Convert.ToDateTime(dbReader["NgaySinh"]),
+                        MaChucDanh = Convert.ToInt32(dbReader["MaChucDanh"]),
+                        GioiTinh = Convert.ToBoolean(dbReader["GioiTinh"]),
+                        Email = Convert.ToString(dbReader["Email"]),
+                        DiaChi = Convert.ToString(dbReader["DiaChi"]),
+                        SoDienThoai = Convert.ToString(dbReader["SoDienThoai"]),
+                        NgayDangKy = Convert.ToDateTime(dbReader["NgayDangKy"]),
+                        NgayHetHan = Convert.ToDateTime(dbReader["NgayHetHan"]),
+                        Lop = Convert.ToString(dbReader["Lop"]),
+                        MaKhoa = Convert.ToInt32(dbReader["MaKhoa"]),
+                        KhoaHoc = Convert.ToInt32(dbReader["KhoaHoc"]),
+                        Username = Convert.ToString(dbReader["Username"]),
+                        Password = Convert.ToString(dbReader["Password"])
+                    };
+                }
                 cn.Close();
             }
-            return result;
+            return acc;
         }
 
 

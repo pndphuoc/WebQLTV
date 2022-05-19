@@ -50,6 +50,7 @@
 
 
         <div class="row">
+
             @foreach (var item in WebQLTV.BusinessLayer.CommonDataService.ListSach())
             {
                 <div class="col-4" style="height:600px">
@@ -57,40 +58,15 @@
                         <img src="~/bostorek/image/1.jpg" style="height:350px">
                         @if (item.SoLuongCon == 0)
                         {
-                            <div style="width: 100%; background-color: #ff6961; color: white; text-align: center">Hết hàng</div>
+                            <p><button class="btn btn" style="background:#0094ff;margin-top:-8px"> Thêm vào giỏ </button></p>
                         }
-                    </a>
-
-                    <h4><strong>@item.TenSach</strong></h4>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-o"></i>
-                    </div>
-                    <p>
-                        Tác giả:
-                        @foreach (var tg in WebQLTV.BusinessLayer.CommonDataService.ListTacGia(item.MaSach))
+                        else
                         {
-                            <strong>
-                                @tg.TenTacGia
-                            </strong><br />
-
+                            <p><a href="~/book/addtowishlist/@item.MaSach" type="submit" form="formWishlist" class="btn btn" style="background:#ffb347;margin-top:-8px"> Thêm vào wishlist </a></p>
                         }
-                        Xuất bản: <strong>@item.MaNhaXuatBan</strong><br />
-                        Số lượng còn trong thư viện: <strong>@item.SoLuongCon</strong>
-                    </p>
-                    @if (item.SoLuongCon > 0)
-                    {
-                        <p><button class="btn btn" style="background:#0094ff;margin-top:-8px"> Thêm vào giỏ </button></p>
-                    }
-                    else
-                    {
-                        <p><button class="btn btn" style="background:#ffb347;margin-top:-8px"> Thêm vào wishlist </button></p>
-                    }
 
-                </div>
+                    </div>
+                </form>
             }
         </div>
 

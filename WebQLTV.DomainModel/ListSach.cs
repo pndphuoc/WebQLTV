@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace WebQLTV.DomainModel
 {
-    public class DanhSachMuon
+    public class ListSach
     {
-        public List<SachMuon> data { get; set; }
+        List<Sach> data { get; set; }
     }
 }
