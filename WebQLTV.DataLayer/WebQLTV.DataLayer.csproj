@@ -44,11 +44,13 @@
     <Compile Include="Class1.cs" />
     <Compile Include="ICartDAL.cs" />
     <Compile Include="ICommonDAL.cs" />
+    <Compile Include="ILichSuMuonDAL.cs" />
     <Compile Include="ITaiKhoanDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLServer\ChucDanhDAL.cs" />
     <Compile Include="SQLServer\DocGiaDAL.cs" />
     <Compile Include="ITacGiaDAL.cs" />
+    <Compile Include="SQLServer\LichSuMuonDAL.cs" />
     <Compile Include="SQLServer\NhaXuatBanDAL.cs" />
     <Compile Include="SQLServer\SachDAL.cs" />
     <Compile Include="SQLServer\TacGiaDAL.cs" />

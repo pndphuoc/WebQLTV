@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuanLyThuVIen.Model
+namespace WebQLTV.DomainModel
 {
     public class ChiTietMuon
     {
@@ -14,7 +14,7 @@ namespace QuanLyThuVIen.Model
         public int SoLuongMuon { get; set; }
         public DateTime HanTra { get; set; }
         public int ID_NguoiDung { get; set; }
-        public bool TrangThai { get; set; }
+        public int TrangThai { get; set; }
 
     }
 }

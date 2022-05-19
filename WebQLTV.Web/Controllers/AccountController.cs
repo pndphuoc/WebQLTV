@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyThuVIen.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -28,7 +29,8 @@ namespace WebQLTV.Web.Controllers
             if (TaiKhoanDataService.CheckLogin(username, password))
             {
                 System.Web.Security.FormsAuthentication.SetAuthCookie(username, false);
-
+                DocGia DG =TaiKhoanDataService.GetDocGia(username);
+                Session["MaDocGia"] = DG.MaDocGia;
                 return RedirectToAction("Index", "Home");
             }
 
