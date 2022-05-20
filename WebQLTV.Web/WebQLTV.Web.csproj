@@ -144,6 +144,7 @@
     <Content Include="bostorek\css\responsive.css" />
     <Content Include="bostorek\css\style.css" />
     <Content Include="bostorek\images\about-img.png" />
+    <Content Include="bostorek\images\asdf.jpg" />
     <Content Include="bostorek\images\b1.jpg" />
     <Content Include="bostorek\images\b2.jpg" />
     <Content Include="bostorek\images\c1.jpg" />
